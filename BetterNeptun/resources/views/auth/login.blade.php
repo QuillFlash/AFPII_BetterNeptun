@@ -11,7 +11,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="row mb-3">
+                        <div class="row mb-3 align-items-center">
                             <label for="neptunCode" class="col-md-4 col-form-label text-md-end">{{ __('Neptun kód:') }}</label>
 
                             <div class="col-md-6">
@@ -25,7 +25,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="row mb-3 align-items-center">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Jelszó:') }}</label>
 
                             <div class="col-md-6">

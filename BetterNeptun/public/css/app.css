@@ -33,7 +33,7 @@ input.form-check-input
 {
     position: relative;
     top: 65px;
-    right: 85%;
+    right: 75%;
     transform: translate(-50%, -50%);
 }
 
@@ -44,4 +44,11 @@ label.form-check-label
     right: 55.5%;
     transform: translate(-30%, -30%);
     white-space: nowrap;
+}
+
+.align-items-center
+{
+    margin: 30px;
+    display: flex; 
+    justify-content: center;
 }
