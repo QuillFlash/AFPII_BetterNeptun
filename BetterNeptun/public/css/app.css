@@ -18,6 +18,7 @@ a.btn, a.btn-link
     top: 50%;
     left: 17.5%;
     transform: translate(-50%, -50%);
+    color: #47A0A6;
 }
 
 button.btn, button.btn-primary
@@ -27,6 +28,8 @@ button.btn, button.btn-primary
     left: 60%;
     right: 50%;
     transform: translate(-50%, -50%);
+    background-color: #47A0A6;
+    border-color: #47A0A6;
 }
 
 input.form-check-input
