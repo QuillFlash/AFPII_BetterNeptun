@@ -5,15 +5,15 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-sm-8">
             <div class="card bg-transparent">
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="row mb-3 d-flex align-self-center">
-                            <i class="icon-user col-md-4 col-form-label text-md-end"></i>
-                            <div class="col-md-6">
+                            <i class="icon-user col-sm-4 col-form-label text-sm-end"></i>
+                            <div class="col-sm-6">
                                 <input id="neptunCode" type="text" placeholder="Neptun-kód" style="color:white;" class="form-control bg-transparent carousel-inner rounded-20 @error('neptunCode') is-invalid @enderror" name="neptunCode" value="{{ old('neptunCode') }}" required autocomplete="neptunCode" autofocus>
                                 @error('neptunCode')
                                     <span class="invalid-feedback" role="alert">
@@ -24,8 +24,8 @@
                         </div>
 
                         <div class="row mb-3 d-flex align-self-center">
-                            <i class="icon-key col-md-4 col-form-label text-md-end"></i>
-                            <div class="col-md-6">
+                            <i class="icon-key col-sm-4 col-form-label text-sm-end"></i>
+                            <div class="col-sm-6">
                                 <input id="password" type="password" placeholder="Jelszó" style="color:white;" class="form-control bg-transparent carousel-inner rounded-20 @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
@@ -37,7 +37,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
+                            <div class="col-sm-6 offset-sm-4">
                                 <div class="form-check">
                                     <input class="form-check-input bg-transparent rounded-pill" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
@@ -49,7 +49,7 @@
                         </div>
 
                         <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
+                            <div class="col-sm-8 offset-sm-4">
                                 <button type="submit" class="btn btn-primary rounded-20">
                                     {{ __('Bejelentkezés') }}
                                 </button>
