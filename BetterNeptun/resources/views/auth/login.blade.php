@@ -14,7 +14,7 @@
                         <div class="row mb-3 d-flex align-self-center">
                             <i class="icon-user col-md-4 col-form-label text-md-end"></i>
                             <div class="col-md-6">
-                                <input id="neptunCode" type="text" class="form-control carousel-inner rounded-20 @error('neptunCode') is-invalid @enderror" name="neptunCode" value="{{ old('neptunCode') }}" required autocomplete="neptunCode" autofocus>
+                                <input id="neptunCode" type="text" placeholder="Neptun-kód" class="form-control bg-transparent carousel-inner rounded-20 @error('neptunCode') is-invalid @enderror" name="neptunCode" value="{{ old('neptunCode') }}" required autocomplete="neptunCode" autofocus>
                                 @error('neptunCode')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -26,7 +26,7 @@
                         <div class="row mb-3 d-flex align-self-center">
                             <i class="icon-key col-md-4 col-form-label text-md-end"></i>
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control carousel-inner rounded-20 @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" placeholder="Jelszó" class="form-control bg-transparent carousel-inner rounded-20 @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
