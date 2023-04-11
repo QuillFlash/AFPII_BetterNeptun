@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+<link rel="stylesheet" href="css/no_navbar.css">
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
