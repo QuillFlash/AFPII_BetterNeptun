@@ -1,22 +1,20 @@
 @extends('layouts.app')
 
+<link rel="stylesheet" href="css/no_navbar.css">
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('BetterNeptun - Bejelentkezés') }}</div>
-
+            <div class="card bg-transparent">
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="row mb-3">
-                            <label for="neptunCode" class="col-md-4 col-form-label text-md-end">{{ __('Neptun kód:') }}</label>
-
+                        <div class="row mb-3 d-flex align-self-center">
+                            <i class="icon-user col-md-4 col-form-label text-md-end"></i>
                             <div class="col-md-6">
-                                <input id="neptunCode" type="text" class="form-control @error('neptunCode') is-invalid @enderror" name="neptunCode" value="{{ old('neptunCode') }}" required autocomplete="neptunCode" autofocus>
-
+                                <input id="neptunCode" type="text" placeholder="Neptun-kód" style="color:white;" class="form-control bg-transparent carousel-inner rounded-20 @error('neptunCode') is-invalid @enderror" name="neptunCode" value="{{ old('neptunCode') }}" required autocomplete="neptunCode" autofocus>
                                 @error('neptunCode')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -25,11 +23,10 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Jelszó') }}</label>
-
+                        <div class="row mb-3 d-flex align-self-center">
+                            <i class="icon-key col-md-4 col-form-label text-md-end"></i>
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" placeholder="Jelszó" style="color:white;" class="form-control bg-transparent carousel-inner rounded-20 @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -42,7 +39,7 @@
                         <div class="row mb-3">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    <input class="form-check-input bg-transparent rounded-pill" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
                                         {{ __('Jelszó megjegyzése') }}
@@ -53,7 +50,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary rounded-20">
                                     {{ __('Bejelentkezés') }}
                                 </button>
 
