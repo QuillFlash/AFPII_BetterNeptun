@@ -58,3 +58,8 @@ label[for=remember]
 {
     color: white;
 }
+
+.icon-user, .icon-key
+{
+    color: #47A0A6;
+}
