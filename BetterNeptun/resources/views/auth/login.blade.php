@@ -11,10 +11,10 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="row mb-3 align-items-center">
+                        <div class="row mb-3 d-flex align-self-center">
                             <i class="icon-user col-md-4 col-form-label text-md-end"></i>
                             <div class="col-md-6">
-                                <input id="neptunCode" type="text" class="form-control carousel-inner rounded-9 @error('neptunCode') is-invalid @enderror" name="neptunCode" value="{{ old('neptunCode') }}" required autocomplete="neptunCode" autofocus>
+                                <input id="neptunCode" type="text" class="form-control carousel-inner rounded-20 @error('neptunCode') is-invalid @enderror" name="neptunCode" value="{{ old('neptunCode') }}" required autocomplete="neptunCode" autofocus>
                                 @error('neptunCode')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -23,10 +23,10 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3 align-items-center">
+                        <div class="row mb-3 d-flex align-self-center">
                             <i class="icon-key col-md-4 col-form-label text-md-end"></i>
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control carousel-inner rounded-9 @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" class="form-control carousel-inner rounded-20 @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -50,7 +50,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary rounded-20">
                                     {{ __('Bejelentkezés') }}
                                 </button>
 
