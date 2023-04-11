@@ -10,3 +10,38 @@ body
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+a.btn, a.btn-link
+{
+    position: relative;
+    top: 50%;
+    left: 20%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+}
+
+button.btn, button.btn-primary
+{
+    position: relative;
+    top: 40%;
+    left: 60%;
+    right: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input.form-check-input
+{
+    position: relative;
+    top: 65px;
+    right: 85%;
+    transform: translate(-50%, -50%);
+}
+
+label.form-check-label
+{
+    position: relative;
+    top: 66px;
+    right: 55.5%;
+    transform: translate(-30%, -30%);
+    white-space: nowrap;
+}
