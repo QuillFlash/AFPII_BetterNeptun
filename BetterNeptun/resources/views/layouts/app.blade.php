@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'BetterNeptun') }}</title>
+    <title>BetterNeptun</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,7 +18,7 @@
     
     <!-- Styles -->
     <link rel="stylesheet" href="css/app.css">
-    
+
 </head>
 <body>
     <div id="app">

@@ -9,6 +9,7 @@ body
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    border: none;
 }
 
 a.btn, a.btn-link
@@ -53,8 +54,7 @@ label.form-check-label
     justify-content: center;
 }
 
-.card
+label[for=remember]
 {
-    border: none;
-    color: rgba(0, 0, 0, 0.8);
+    color: white;
 }
