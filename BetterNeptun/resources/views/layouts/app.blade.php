@@ -17,12 +17,7 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
     <!-- Styles -->
-    <style>
-        body
-        {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
-    </style>
+    <link href="/css/app.css" rel="stylesheet">
 </head>
 <body>
     <div id="app">
