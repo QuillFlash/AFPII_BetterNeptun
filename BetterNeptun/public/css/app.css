@@ -3,13 +3,30 @@ body
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+.card-body
+{
+    column-gap: 40px;
+}
+
 .card
 {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 45.5%;
     transform: translate(-40%, -40%);
     border: none;
+    column-gap: 10%;
+}
+
+.row:before, .row:after
+{
+    display: flex !important;
+}
+
+.flexbox-gap
+{
+    gap: 30px;
+    display: inline-block;
 }
 
 a.btn
@@ -17,32 +34,44 @@ a.btn
     position: relative;
     color: #47A0A6;
     white-space: nowrap;
-    right: 15%;
+    left: 7.5%;
 }
 
 button.btn, button.btn-primary
 {
     position: relative;
-    right: -5%;
+    left: 20%;
+    height: 40px;
     background-color: #47A0A6;
     border-color: #47A0A6;
+    align-items: center;
+    justify-content: center;
 }
 
 input.form-check-input
 {
     position: relative;
     border: 4px solid #47A0A6;
-    width: 20px;
+    border-radius: 20px;
+    width: 25px;
+    height: 16px;
     cursor: pointer;
-    right: 20%;
-    bottom: 0.25vh;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+}
+
+.form-check-input:checked
+{
+    background-color: white;
 }
 
 label.form-check-label
 {
     position: relative;
     white-space: nowrap;
-    right: 15%;
+    left: 10%;
+    transform: translate(50px, 0px);
 }
 
 label[for=remember]
@@ -63,5 +92,9 @@ label[for=remember]
 input[id=neptunCode], input[id=password]
 {
     width: 200px;
+    height: auto;
+    background: transparent;
     border: 4px solid #47A0A6;
+    -webkit-appearance: textfield;
+    appearance: auto;
 }
