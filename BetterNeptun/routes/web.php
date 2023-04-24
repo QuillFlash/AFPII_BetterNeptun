@@ -17,7 +17,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Login oldal
-Route::view('login','login');
-Route::post('login','RestoController@login');
+Route::view('login','auth.login');
+Route::post('login','App\Http\Controllers\RestoController@login');
 
 //Átlag számítás
