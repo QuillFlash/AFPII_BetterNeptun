@@ -3,8 +3,8 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+        <div class="col-sm-24" id="card_col">
+            <div class="card w-75" id="messages">
                 <div class="card-header">{{ __('Üzenetek') }}</div>
 
                 <div class="card-body">
@@ -13,8 +13,12 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {{ __('Lorem ipsum dolor sit amet') }}
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{{ __('Lorem ipsum dolor sit amet') }}</li>
+                        <li class="list-group-item">{{ __('Consequetur adipliscing elit') }}</li>
+                        <li class="list-group-item">{{ __('Sed do eiusmod tempor incididunt ut labore') }}</li>
+                        <li class="list-group-item">{{ __('Et dolore magna aliqua') }}</li>
+                </ul>
                 </div>
             </div>
         </div>

@@ -14,7 +14,14 @@ body
     column-gap: 40px;
 }
 
-.card
+.card[id=messages]
+{
+    position: absolute;
+    top: 30%;
+    left: 20%;
+}
+
+.card[id=login_card]
 {
     position: absolute;
     top: 50%;

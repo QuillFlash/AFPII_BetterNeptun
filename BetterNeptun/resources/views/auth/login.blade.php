@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-lg-8">
-            <div class="card bg-transparent">
+            <div class="card bg-transparent" id="login_card">
                 <div class="card-body align-items-center justify-content-start">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
