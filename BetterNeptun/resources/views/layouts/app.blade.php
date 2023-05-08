@@ -34,7 +34,42 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                        <a class="navbar-toggler" href="{{ url('/+rarend') }}">
+                            BetterNeptun
+                        </a>
+                        <li><a name="timetable" class="nav-link" href="{{ url('/timetable') }}">Órarend</a></li>
+                        <li><a name="succession" class="nav-link" href="{{ url('/succession') }}">Előrehaladás</a></li>
+                        <li><a name="subjects" class="nav-link" href="{{ url('/subjects') }}">Tárgyak</a></li>
 
+                        @if(Route::is('timetable'))
+                            <style>
+                                a[name="timetable"]
+                                {
+                                    background-color: #0B4246;
+                                    border-radius: 5%;
+                                }
+                            </style>
+                        @endif
+
+                        @if(Route::is('succession'))
+                            <style>
+                                a[name="succession"]
+                                {
+                                    background-color: #0B4246;
+                                    border-radius: 5%;
+                                }
+                            </style>
+                        @endif
+
+                        @if(Route::is('subjects'))
+                            <style>
+                                a[name="subjects"]
+                                {
+                                    background-color: #0B4246;
+                                    border-radius: 5%;
+                                }
+                            </style>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -56,7 +91,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Kijelentkezés') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

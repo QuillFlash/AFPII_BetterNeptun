@@ -15,7 +15,7 @@
                     @endif
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">{{ __('Lorem ipsum dolor sit amet') }}</li>
-                        <li class="list-group-item">{{ __('Consequetur adipliscing elit') }}</li>
+                        <li class="list-group-item">{{ __('Consectetur adipliscing elit') }}</li>
                         <li class="list-group-item">{{ __('Sed do eiusmod tempor incididunt ut labore') }}</li>
                         <li class="list-group-item">{{ __('Et dolore magna aliqua') }}</li>
                 </ul>
