@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ListStudentsController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,4 +20,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::view('login','auth.login');
 Route::post('login','App\Http\Controllers\RestoController@login');
 
-//Átlag számítás
+//Admin oldal
+Route::resource('students', StudentsController::class);

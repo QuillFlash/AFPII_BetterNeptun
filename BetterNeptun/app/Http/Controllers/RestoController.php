@@ -8,11 +8,20 @@ class RestoController extends Controller
     function login(Request $req)
     {
         $user = User::where('neptunCode',$req->input('neptunCode'))->get()->first();
-        dd($user);
         if(($user->password) == $req->input('password'))
         {
             $req->session()->put('user', $req->name);
-            return view('home');
+            if(($user->isAdmin) == 1)
+            {
+                return view('/students.index');
+            }
+            else
+            {
+                return view('home');
+            }
+        }
+        else{
+            return view('welcome');
         }
     }
 }
