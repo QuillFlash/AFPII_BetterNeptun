@@ -8,7 +8,7 @@
         <div class="col-lg-8">
             <div class="card bg-transparent" id="login_card">
                 <div class="card-body align-items-center justify-content-start">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="login">
                         @csrf
                         <div class="row col-lg-6 mb-3 d-flex align-items-center justify-content-center">
                             <i class="icon-user col-lg-4 col-form-label text-lg-end"></i>

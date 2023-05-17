@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -11,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+=======
+use App\Http\Controllers\ListStudentsController;
 
 Route::get('/', function ()
 {
@@ -24,3 +27,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'loginIndex'])->name('login');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Login oldal
+Route::view('login','auth.login');
+Route::post('login','App\Http\Controllers\RestoController@login');
+
+//Admin oldal
+Route::resource('students', StudentsController::class);

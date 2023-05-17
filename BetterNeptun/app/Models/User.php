@@ -22,6 +22,8 @@ class User extends Authenticatable
         'neptunCode',
         'email',
         'password',
+        'isAdmin',
+        'gradeId'
     ];
 
     /**
