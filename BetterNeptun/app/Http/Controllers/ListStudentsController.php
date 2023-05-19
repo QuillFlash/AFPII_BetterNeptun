@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StudentControllerRequest;
+use App\Http\Requests\UpdateStudentControllerRequest;
 use App\Models\User;
 use DateTime;
 use Illuminate\Http\RedirectResponse;
@@ -10,19 +12,39 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 
+use function Ramsey\Uuid\v1;
+
 class ListStudentsController extends Controller
 {
+    function login(Request $req)
+    {
+        $user = User::where('neptunCode',$req->input('neptunCode'))->get()->first();
+        if(($user->password) == $req->input('password'))
+        {
+            $req->session()->put('user', $req->name);
+            if(($user->isAdmin) == 1)
+            {
+                $students = DB::select('select * from users');
+                return view('students.index',['students' => $students]);
+            }
+            else
+            {
+                return view('home');
+            }
+        }
+        else{
+            return view('welcome');
+        }
+    }
+    
     //Read
     public function index()
     {
-        return view('students.index');
+        $students = DB::select('select * from users');
+        return view('students.index')->with('students', $students);
     }
 
-    public function addStudent()
-    {
-        return view('students.addStudent');
-    }
-
+    //Create
     public function create(Request $request)
     {
         //Saving inputs into variables
@@ -43,27 +65,36 @@ class ListStudentsController extends Controller
         return view('students.addStudent');
     }
 
-    public function store(Request $request) : RedirectResponse
+    public function addStudentIndex()
     {
-        $input = $request->all();
-        User::create($input);
-        return redirect('addStudent')->with('flash_message', 'Student added!');
+        return view('students.addStudent');
     }
 
-    public function edit(string $id)
+    public function store(StudentControllerRequest $request)
     {
-        //
+        User::create($request->validated());
+        return back()->with('success','User Added Succesfully!');
     }
 
     //Update
-    public function update(Request $request, string $id)
+    public function update(UpdateStudentControllerRequest $request, User $student)
     {
-        //
+        User::update($request->validated());
+        return back()->with('success','User Information Updated Succesfully!');
     }
 
-    public function removeStudent()
+    //Listing Existing Students
+    public function listStudents()
     {
+        $students = DB::select('select * from users');
+        return view('students.removeStudent')->with('students', $students);
+    }
 
-        return view('students.removeStudent');
+    //Delete Students
+    public function removeStudent($id)
+    {
+        $student = User::find($id);
+        $student->delete();
+        return redirect('removeStudent');
     }
 }

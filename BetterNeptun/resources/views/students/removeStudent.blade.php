@@ -1,3 +1,5 @@
+@extends('layouts.app')
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +9,23 @@
     <title>Remove Student</title>
 </head>
 <body>
-    <h1>Remove student</h1>
+    <!--Navigation to pages-->
+    <div class="navbar">
+        <a href="index">List Students</a>
+        <a href="addStudent">Add Student</a>
+        <a href="updateStudent">Update Student Informations</a>
+    </div>
+
+    <!-- Student list -->
+    @foreach ($students as $std)
+        <tr>
+            <td>{{$std->id}}</td>
+            <td>{{$std->name}}</td>
+            <td>{{$std->neptunCode}}</td>
+            <td>{{$std->email}}</td>
+            <td><a href="{{"delete/".$std->id}}">Delete</a></td><br>
+        </tr>
+    @endforeach
 </body>
 </html>
+@endsection

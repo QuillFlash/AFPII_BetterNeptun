@@ -13,7 +13,7 @@
     <div class="navbar">
         <a href="addStudent">Add Student</a>
         <a href="removeStudent">Remove Student</a>
-        <a href="update_student">Update Student Informations</a>
+        <a href="updateStudent">Update Student Informations</a>
     </div>
 
     <!--Student listing-->

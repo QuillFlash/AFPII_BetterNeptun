@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('neptunCode');
             $table->string('email')->unique();
             $table->string('password');
+            $table->boolean('isAdmin');
         });
     }
 
