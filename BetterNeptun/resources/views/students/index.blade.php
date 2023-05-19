@@ -9,15 +9,19 @@
     <title>Admin page</title>
 </head>
 <body>
-    <!--navbar-->
-    <div>
-        <button type="submit">Add Student</button>
-        <button type="submit">Remove Student</button>
-        <button type="submit">Update Student Informations</button>
+    <!--Navigation to <pages-->
+    <div class="navbar">
+        <a href="addStudent">Add Student</a>
+        <a href="removeStudent">Remove Student</a>
+        <a href="update_student">Update Student Informations</a>
     </div>
 
-    <!--Students list-->
-    {{$students}}
+    <!--Student listing-->
+    @foreach ($students as $std)
+        {{$std->name}} <!--Student name from database-->
+        {{$std->neptunCode}} <!--Student netptunCode from database-->
+        {{$std->email}} <!--Student email from database-->
+    @endforeach
 </body>
 </html>
 @endsection

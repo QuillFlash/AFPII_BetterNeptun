@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\DB;
+
 class RestoController extends Controller
 {
     function login(Request $req)
@@ -13,7 +15,8 @@ class RestoController extends Controller
             $req->session()->put('user', $req->name);
             if(($user->isAdmin) == 1)
             {
-                return view('/students.index');
+                $students = DB::select('select * from users');
+                return view('students.index',['students' => $students]);
             }
             else
             {

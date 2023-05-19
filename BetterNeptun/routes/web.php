@@ -21,4 +21,7 @@ Route::view('login','auth.login');
 Route::post('login','App\Http\Controllers\RestoController@login');
 
 //Admin oldal
-Route::resource('students', StudentsController::class);
+Route::get('/students', [ListStudentsController::class, 'index']);
+Route::get('/addStudent', [ListStudentsController::class, 'addStudent']);
+Route::post('/addStudent', [ListStudentsController::class, 'create']);
+Route::get('/removeStudent', [ListStudentsController::class, 'removeStudent']);
