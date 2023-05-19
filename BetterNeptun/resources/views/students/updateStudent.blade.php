@@ -21,14 +21,16 @@
         <div class="card-header">Update Student Information</div>
         <div class="card-body">
             @include('messages')
-            <form action="{{ url('updateStudent') }}" method="post">
+            <form action="{{url('updateStudent')}}" method="post">
               {!! csrf_field() !!}
               @method("put")
-              <label>Name</label></br>
-              <input type="text" name="name" id="name" class="form-control"></br>
-              <label>Neptun Code</label></br>
-              <input type="text" name="neptunCode" id="neptunCode" class="form-control"></br>
-              <input type="submit" value="Save" class="btn btn-success"></br>
+              <label>Search by Neptun Code</label></br>
+              <input type="text" name="searchNCode" id="searchNCode" class="form-control"></br>
+              <label>New Name</label></br>
+              <input type="text" name="newName" id="newName" class="form-control"></br>
+              <label>New Neptun Code</label></br>
+              <input type="text" name="newNeptunCode" id="newNeptunCode" class="form-control"></br>
+              <input type="submit" value="Update" class="btn btn-warning"></br>
           </form>
         </div>
       </div>

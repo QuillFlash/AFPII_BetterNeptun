@@ -76,11 +76,24 @@ class ListStudentsController extends Controller
         return back()->with('success','User Added Succesfully!');
     }
 
-    //Update
-    public function update(UpdateStudentControllerRequest $request, User $student)
+    public function updateStudentIndex()
     {
-        User::update($request->validated());
-        return back()->with('success','User Information Updated Succesfully!');
+        $students = DB::select('select * from users');
+        return view('students.updateStudent')->with('student', $students);
+    }
+
+    //Update
+    public function updateStudent(Request $request)
+    {
+        if($request->newName != "" || $request->newNeptunCode != "")
+        {
+            DB::table('users')->where('neptunCode', $request->searchNCode)->update([
+                'name' => $request->newName,
+                'neptunCode' => $request->newNeptunCode
+            ]);
+            return redirect()->route('students.index')->with('success', 'Student information updated successfully.');
+        }
+        return redirect()->route('students.index')->with('error', 'There is no student with that neptun code.');
     }
 
     //Listing Existing Students
