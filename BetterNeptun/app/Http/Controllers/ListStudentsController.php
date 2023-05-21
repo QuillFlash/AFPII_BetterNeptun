@@ -154,9 +154,10 @@ class ListStudentsController extends Controller
     {
         $subjects = DB::select('select * from subjects');
         //Getting the subjects id from the blade
-        $currentUser = DB::table('current_user')->select()->get();
+        $currentUser = DB::table('current_user')->get()->last();
+
         $subjectId = DB::table('subjects')->where('id', $id)->first();
-        $studentId = $currentUser[1]->user_id;
+        $studentId = $currentUser->user_id;
         DB::table('assignments')->insert([
             'subjectId' => $subjectId->id,
             'studentId' => $studentId
@@ -182,4 +183,11 @@ class ListStudentsController extends Controller
         ]);
         return view('students.addGrade');
     }
+
+    /*public function gradeAvarageIndex()
+    {
+        $currentUser = DB::table('current_user')->select()->get();
+        $grades = 
+        return view('students.listSubjects')->with('subjects', $subjects);
+    }*/
 }
