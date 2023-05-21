@@ -4,8 +4,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ListStudentsController;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function ()
+{
+    return view('home');
 });
 Auth::routes();
 
