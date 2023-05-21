@@ -20,3 +20,18 @@ describe('Add student', () => {
         cy.contains('button', 'Bejelentkezés').click();
     });
 });
+
+describe('Update student information', () => {
+    it('succesfully added student', () => {
+        cy.visit('/login');
+        cy.get('#neptunCode').type('N4PVV4');
+        cy.get('#password').type('123456');
+        cy.contains('button', 'Bejelentkezés').click();
+
+        cy.contains('a', 'Update Student Information').click();
+        cy.get('#neptunCode').type('N4PVV4');
+        cy.get('#name').type('Varró Bence');
+        cy.get('#newNeptunCode').type('ASDASD');
+        cy.contains('button', 'Update').click();
+    });
+});
