@@ -2,17 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StudentControllerRequest;
-use App\Http\Requests\UpdateStudentControllerRequest;
 use App\Models\User;
-use DateTime;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
-
-use function Ramsey\Uuid\v1;
+use Illuminate\Support\Facades\Session;
+use App\Http\Requests\StudentControllerRequest;
 
 class ListStudentsController extends Controller
 {
@@ -21,15 +16,31 @@ class ListStudentsController extends Controller
         $user = User::where('neptunCode',$req->input('neptunCode'))->get()->first();
         if(($user->password) == $req->input('password'))
         {
-            $req->session()->put('user', $req->name);
             if(($user->isAdmin) == 1)
             {
+                DB::table('current_user')->insert([
+                    'name' => $user->name,
+                    'neptunCode' => $user->neptunCode,
+                    'email' => $user->email,
+                    'password' => $user->password,
+                    'isAdmin' => $user->isAdmin,
+                    'user_id' => $user->id
+                ]);
                 $students = DB::select('select * from users');
-                return view('students.index',['students' => $students]);
+                return view('students.index',['students' => $students, 'currentUser' => $user]);
             }
             else
             {
-                return view('home');
+                DB::table('current_user')->insert([
+                    'name' => $user->name,
+                    'neptunCode' => $user->neptunCode,
+                    'email' => $user->email,
+                    'password' => $user->password,
+                    'isAdmin' => $user->isAdmin,
+                    'user_id' => $user->id
+                ]);
+                $subjects = DB::select('select * from subjects');
+                return view('students.listSubjects', ['subjects' => $subjects, 'currentUser' => $user]);
             }
         }
         else{
@@ -52,15 +63,13 @@ class ListStudentsController extends Controller
         $neptunCode = $request->input('neptunCode');
         $pw = $request->input('password');
         $email = $request->input('email');
-        $gradeId = $request->input('gradeId');
 
         DB::table('users')->insert([
             'name' => $username,
             'neptunCode' => $neptunCode,
             'email' => $email,
             'password' => $pw,
-            'isAdmin' => 0,
-            'gradeId' => $gradeId
+            'isAdmin' => 0
         ]);
         return view('students.addStudent');
     }
@@ -109,5 +118,60 @@ class ListStudentsController extends Controller
         $student = User::find($id);
         $student->delete();
         return redirect('removeStudent');
+    }
+
+    //Add Subject Index
+    public function addSubjectIndex()
+    {
+        $subjects = DB::select('select * from subjects');
+        return view('students.addSubject')->with('subjects', $subjects);
+    }
+
+    //Add Subjects
+    public function addSubject(Request $request)
+    {
+        //Saving inputs into variables
+        $subjectName = $request->input('subjectName');
+        $subjectCode = $request->input('subjectCode');
+        $room = $request->input('room');
+
+        DB::table('subjects')->insert([
+            'subjectName' => $subjectName,
+            'subjectCode' => $subjectCode,
+            'room' => $room
+        ]);
+        return view('students.addSubject');
+    }
+
+    public function listSubjectsIndex()
+    {
+        $subjects = DB::select('select * from subjects');
+        dd($subjects);
+        return view('students.listSubjects')->with('subjects', $subjects);
+    }
+
+    //Assign student to subject
+    public function assignStudentToSubject($id)
+    {
+        $subjects = DB::select('select * from subjects');
+        //Getting the subjects id from the blade
+        $currentUser = DB::table('current_user')->select()->get();
+        $subjectId = DB::table('subjects')->where('id', $id)->first();
+        $studentId = $currentUser[1]->user_id;
+        DB::table('assignments')->insert([
+            'subjectId' => $subjectId->id,
+            'studentId' => $studentId
+        ]);
+        return view('students.listSubjects', ['subjects' => $subjects]);
+    }
+
+    public function addGradeIndex()
+    {
+        return view('students.addGrade');
+    }
+
+    public function addGrade()
+    {
+        
     }
 }

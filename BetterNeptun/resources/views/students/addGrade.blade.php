@@ -6,16 +6,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Add Student</title>
+    <title>Add Grade</title>
 </head>
 <body>
     <!--Navigation to pages-->
     <div class="navbar">
         <a href="index">List Students</a>
+        <a href="addStudent">Add Student</a>
         <a href="removeStudent">Remove Student</a>
         <a href="updateStudent">Update Student Informations</a>
         <a href="addSubject">Add Subject</a>
-        <a href="addGrade">Add Grade</a>
     </div>
 
     <!-- Validation fail -->
