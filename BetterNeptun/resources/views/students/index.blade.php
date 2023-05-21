@@ -14,14 +14,19 @@
         <a href="addStudent">Add Student</a>
         <a href="removeStudent">Remove Student</a>
         <a href="updateStudent">Update Student Informations</a>
+        <a href="addSubject">Add Subject</a>
+        <a href="addGrade">Add Grade</a>
+        <button></button>
     </div>
 
     <!--Student listing-->
+    <div style="color: white">
     @foreach ($students as $std)
         {{$std->name}} <!--Student name from database-->
         {{$std->neptunCode}} <!--Student netptunCode from database-->
         {{$std->email}} <!--Student email from database-->
     @endforeach
+    </div>
 </body>
 </html>
 @endsection

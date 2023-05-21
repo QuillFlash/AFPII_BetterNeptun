@@ -14,6 +14,8 @@
         <a href="index">List Students</a>
         <a href="addStudent">Add Student</a>
         <a href="removeStudent">Remove Student</a>
+        <a href="addSubject">Add Subject</a>
+        <a href="addGrade">Add Grade</a>
     </div>
 
     <!-- Input card -->

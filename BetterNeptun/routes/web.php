@@ -36,3 +36,26 @@ Route::put('/updateStudent', [ListStudentsController::class, 'updateStudent']);
 Route::view('removeStudent', 'students.removeStudent');
 Route::get('/removeStudent', [ListStudentsController::class, 'listStudents']);
 Route::get('delete/{id}', [ListStudentsController::class, 'removeStudent']);
+
+//Add subject oldal
+Route::view('addSubject', 'students.addSubject');
+Route::get('/addSubject', [ListStudentsController::class, 'addSubjectIndex']);
+Route::put('/addSubject', [ListStudentsController::class, 'addSubject']);
+
+//Student oldal
+Route::view('listSubjects', 'students.listSubjects');
+Route::get('/listSubjects', [ListStudentsController::class, 'listSubjectsIndex']);
+Route::get('assign/{id}', [ListStudentsController::class, 'assignStudentToSubject']);
+
+//Add grade oldal
+Route::view('addGrade', 'students.addGrade');
+Route::get('/addGrade', [ListStudentsController::class, 'addGradeIndex']);
+Route::post('/addGrade', [ListStudentsController::class, 'addGrade']);
+
+//Grade avarage oldal
+Route::view('gradeAvarage', 'students.gradeAvarage');
+Route::get('/gradeAvarage', [ListStudentsController::class, 'gradeAvarageIndex']);
+
+//Schedule oldal
+Route::view('schedule', 'students.schedule');
+Route::get('/schedule', [ListStudentsController::class, 'schedule']);
