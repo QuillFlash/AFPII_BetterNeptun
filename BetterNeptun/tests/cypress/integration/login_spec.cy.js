@@ -18,4 +18,13 @@ describe('Login', () => {
         cy.on('window:alert',(txt)=>{
             expect(txt).to.contains('Kérjük, töltse ki ezt a mezőt.')});
     });
+
+    it('empty password', () => {
+        cy.visit('/login');
+        cy.get('#neptunCode').type('N4PVV4');
+        cy.get('#password').type('');
+        cy.contains('button', 'Bejelentkezés').click();
+        cy.on('window:alert',(txt)=>{
+            expect(txt).to.contains('Kérjük, töltse ki ezt a mezőt.')});
+    });
 });
