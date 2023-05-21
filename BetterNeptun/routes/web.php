@@ -55,3 +55,7 @@ Route::post('/addGrade', [ListStudentsController::class, 'addGrade']);
 //Grade avarage oldal
 Route::view('gradeAvarage', 'students.gradeAvarage');
 Route::get('/gradeAvarage', [ListStudentsController::class, 'gradeAvarageIndex']);
+
+//Schedule oldal
+Route::view('schedule', 'students.schedule');
+Route::get('/schedule', [ListStudentsController::class, 'schedule']);

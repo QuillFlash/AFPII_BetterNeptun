@@ -200,4 +200,23 @@ class ListStudentsController extends Controller
 
         return view('students.gradeAvarage')->with('avg', $avg);
     }
+
+    public function schedule()
+    {
+        $currentUser = DB::table('current_user')->get()->last();
+        $studentId = $currentUser->user_id;
+
+        $assignments = DB::table('assignments')->where('studentId', $studentId)->get();
+        $subjects = array();
+        for ($i=0; $i < count($assignments); $i++)
+        {
+            $subject = DB::table('subjects')->where('id', $assignments[$i]->subjectId)->get();
+            for ($j=0; $j < count($subject); $j++)
+            {
+                $subjectName = $subject[$j]->subjectName;
+                array_push($subjects, $subjectName);
+            }
+        }
+        return view('students.schedule')->with('subjects', $subjects);
+    }
 }
