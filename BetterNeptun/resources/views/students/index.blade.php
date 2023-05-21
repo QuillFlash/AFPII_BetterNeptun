@@ -16,6 +16,7 @@
         <a href="updateStudent">Update Student Informations</a>
         <a href="addSubject">Add Subject</a>
         <a href="addGrade">Add Grade</a>
+        <button></button>
     </div>
 
     <!--Student listing-->
