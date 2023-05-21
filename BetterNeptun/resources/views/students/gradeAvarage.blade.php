@@ -12,16 +12,12 @@
     <div class="container">
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 dark:bg-dots-lighter dark:bg-gray-900 selection:bg-red-500 selection:text-white">
             <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right" style="color: white">
+                <!--navbar-->
+                <a href="listSubjects">List Subjects</a>
+                <a href="schedule">Schedule</a>
                 <!-- Student list -->
-                <div style="color: black">>
-                    @foreach ($grades as $gr)
-                        <tr>
-                            <td>{{$gr->subjectName}}</td>
-                            <td>{{$gr->subjectCode}}</td>
-                            <td>{{$gr->Room}}</td>
-                            <td><a href="{{"assign/".$std->id}}" class="btn btn-success">Assign</a></td><br>
-                        </tr>
-                    @endforeach
+                <div style="color: white">>
+                    <h1>Your avarage is: {{$avg}}</h1>
                 </div>
             </div>
         </div>

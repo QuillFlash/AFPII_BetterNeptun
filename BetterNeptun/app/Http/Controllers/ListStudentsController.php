@@ -8,6 +8,7 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\StudentControllerRequest;
+use PHPUnit\Framework\Constraint\Count;
 
 class ListStudentsController extends Controller
 {
@@ -184,10 +185,19 @@ class ListStudentsController extends Controller
         return view('students.addGrade');
     }
 
-    /*public function gradeAvarageIndex()
+    public function gradeAvarageIndex()
     {
-        $currentUser = DB::table('current_user')->select()->get();
-        $grades = 
-        return view('students.listSubjects')->with('subjects', $subjects);
-    }*/
+        $currentUser = DB::table('current_user')->get()->last();
+        $studentId = $currentUser->user_id;
+        $grades = DB::table('grades')->where('studentId', $studentId)->get();
+        $avg = 0;
+        for ($i=0; $i < count($grades); $i++) { 
+            $avg += $grades[$i]->grade;
+        }
+        $remainder = $avg % count($grades);
+        $quotient = ($avg - $remainder) / count($grades);
+        $avg = $quotient.'.'.$remainder;
+
+        return view('students.gradeAvarage')->with('avg', $avg);
+    }
 }

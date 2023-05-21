@@ -51,3 +51,7 @@ Route::get('assign/{id}', [ListStudentsController::class, 'assignStudentToSubjec
 Route::view('addGrade', 'students.addGrade');
 Route::get('/addGrade', [ListStudentsController::class, 'addGradeIndex']);
 Route::post('/addGrade', [ListStudentsController::class, 'addGrade']);
+
+//Grade avarage oldal
+Route::view('gradeAvarage', 'students.gradeAvarage');
+Route::get('/gradeAvarage', [ListStudentsController::class, 'gradeAvarageIndex']);
