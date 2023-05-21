@@ -146,7 +146,6 @@ class ListStudentsController extends Controller
     public function listSubjectsIndex()
     {
         $subjects = DB::select('select * from subjects');
-        dd($subjects);
         return view('students.listSubjects')->with('subjects', $subjects);
     }
 
@@ -170,8 +169,17 @@ class ListStudentsController extends Controller
         return view('students.addGrade');
     }
 
-    public function addGrade()
+    public function addGrade(Request $request)
     {
-        
+        $grade = $request->grade;
+        $studentId = DB::table('users')->where('neptunCode', $request->neptunCode)->first();
+        $subjectId = DB::table('subjects')->where('subjectName', $request->subjectName)->first();
+
+        DB::table('grades')->insert([
+            'grade' => $grade,
+            'subjectId' => $subjectId->id,
+            'studentId' => $studentId->id
+        ]);
+        return view('students.addGrade');
     }
 }

@@ -31,14 +31,22 @@
 
     <!-- Input card -->
     <div class="card">
-        <div class="card-header">Add student</div>
+        <div class="card-header">Add grade</div>
         <div class="card-body">
             @include('messages')
-            <form action="{{ url('addStudent') }}" method="post">
+            <form action="{{ url('addGrade') }}" method="post">
               {!! csrf_field() !!}
-              <label>Name</label></br>
-              <input type="text" name="name" id="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}"></br>
-              @error('name')
+              <label>Subject Name</label></br>
+              <input type="text" name="subjectName" id="subjectName" class="form-control @error('subjectName') is-invalid @enderror" value="{{old('subjectName')}}"></br>
+              @error('subjectName')
+                <span class="text-danger">
+                    <strong>{{message}}</strong>
+                </span>
+              @enderror
+
+              <label>Grade</label></br>
+              <input type="number" name="grade" id="grade" class="form-control @error('grade') is-invalid @enderror" value="{{old('grade')}}"></br>
+              @error('grade')
                 <span class="text-danger">
                     <strong>{{message}}</strong>
                 </span>
@@ -47,28 +55,12 @@
               <label>Neptun Code</label></br>
               <input type="text" name="neptunCode" id="neptunCode" class="form-control @error('neptunCode') is-invalid @enderror" value="{{old('neptunCode')}}"></br>
               @error('neptunCode')
-                <span class="text-danger">
-                    <strong>{{message}}</strong>
-                </span>
-              @enderror
-
-              <label>Password</label></br>
-              <input type="password" name="password" id="password" class="form-control @error('password') is-invalid @enderror" value="{{old('password')}}"></br>
-              @error('password')
               <span class="text-danger">
                   <strong>{{message}}</strong>
               </span>
                 @enderror
 
-              <label>Email</label></br>
-              <input type="text" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{old('email')}}"></br>
-              @error('email')
-                <span class="text-danger">
-                    <strong>{{message}}</strong>
-                </span>
-              @enderror
-
-              <input type="submit" value="Save" class="btn btn-success"></br>
+              <input type="submit" value="Save" class="btn btn-warning"></br>
           </form>
         </div>
       </div>

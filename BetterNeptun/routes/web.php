@@ -47,6 +47,7 @@ Route::view('listSubjects', 'students.listSubjects');
 Route::get('/listSubjects', [ListStudentsController::class, 'listSubjectsIndex']);
 Route::get('assign/{id}', [ListStudentsController::class, 'assignStudentToSubject']);
 
+//Add grade oldal
 Route::view('addGrade', 'students.addGrade');
 Route::get('/addGrade', [ListStudentsController::class, 'addGradeIndex']);
 Route::post('/addGrade', [ListStudentsController::class, 'addGrade']);
