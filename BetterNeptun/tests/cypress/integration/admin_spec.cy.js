@@ -50,3 +50,18 @@ describe('Add subject', () => {
         cy.contains('button', 'Add Subject').click();
     });
 });
+
+describe('Add grade', () => {
+    it('succesfully added student', () => {
+        cy.visit('/login');
+        cy.get('#neptunCode').type('N4PVV4');
+        cy.get('#password').type('123456');
+        cy.contains('button', 'Bejelentkezés').click();
+
+        cy.contains('a', 'Add Grade').click();
+        cy.get('#subjectName').type('Valószínűség számítás gy.');
+        cy.get('#grade').type('5');
+        cy.get('#neptunCode').type('ZDEN48');
+        cy.contains('button', 'Save').click();
+    });
+})
