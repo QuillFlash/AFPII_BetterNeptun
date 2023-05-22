@@ -17,7 +17,7 @@ use App\Http\Controllers\ListStudentsController;
 
 Route::get('/', function ()
 {
-    return view('home');
+    return view('login');
 });
 Auth::routes();
 
@@ -27,7 +27,7 @@ Route::resource('students', ListStudentsController::class);
 
 //Login oldal
 Route::view('login','auth.login');
-Route::post('/login', [ListStudentsController::class, 'login']);
+Route::post('/login', [LoginController::class, 'login']);
 
 //Add student oldal (CRUD - Create)
 Route::view('addstudent', 'students.addStudent');
@@ -50,13 +50,13 @@ Route::get('delete/{id}', [ListStudentsController::class, 'removeStudent']);
 
 //Add subject oldal
 Route::view('addSubject', 'students.addSubject');
-Route::get('/addSubject', [ListStudentsController::class, 'addSubjectIndex']);
-Route::put('/addSubject', [ListStudentsController::class, 'addSubject']);
+Route::get('/addSubject', [SubjectsController::class, 'addSubjectIndex']);
+Route::put('/addSubject', [SubjectsController::class, 'addSubject']);
 
 //Student oldal
 Route::view('listSubjects', 'students.listSubjects');
-Route::get('/listSubjects', [ListStudentsController::class, 'listSubjectsIndex']);
-Route::get('assign/{id}', [ListStudentsController::class, 'assignStudentToSubject']);
+Route::get('/listSubjects', [SubjectsController::class, 'listSubjectsIndex']);
+Route::get('assign/{id}', [SubjectsController::class, 'assignStudentToSubject']);
 
 //Add grade oldal
 Route::view('addGrade', 'students.addGrade');
@@ -68,5 +68,5 @@ Route::view('gradeAvarage', 'students.gradeAvarage');
 Route::get('/gradeAvarage', [ListStudentsController::class, 'gradeAvarageIndex']);
 
 //Schedule oldal
-Route::view('schedule', 'students.schedule');
-Route::get('/schedule', [ListStudentsController::class, 'schedule']);
+Route::view('timetable', 'students.timetable');
+Route::get('/timetable', [ListStudentsController::class, 'schedule']);
