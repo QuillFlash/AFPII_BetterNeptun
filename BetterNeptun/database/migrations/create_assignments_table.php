@@ -8,9 +8,8 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('grades', function (Blueprint $table) {
+        Schema::create('assignments', function (Blueprint $table) {
             $table->id();
-            $table->string('grade');
             $table->unsignedBigInteger('subjectId');
             $table->unsignedBigInteger('studentId');
         });
@@ -18,6 +17,6 @@ return new class extends Migration
     
     public function down(): void
     {
-        Schema::dropIfExists('grades');
+        Schema::dropIfExists('assignments');
     }
 };

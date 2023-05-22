@@ -6,25 +6,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Admin page</title>
+    <title>Remove Student</title>
 </head>
 <body>
-    <!--Navigation to <pages-->
+    <!--Navigation to pages-->
     <div class="navbar">
+        <a href="index">List Students</a>
         <a href="addStudent">Add Student</a>
-        <a href="removeStudent">Remove Student</a>
         <a href="updateStudent">Update Student Informations</a>
         <a href="addSubject">Add Subject</a>
         <a href="addGrade">Add Grade</a>
-        <button></button>
     </div>
 
-    <!--Student listing-->
-    <div style="color: white">
+    <!-- Student list -->
+    <div style="color: white">>
     @foreach ($students as $std)
-        {{$std->name}} <!--Student name from database-->
-        {{$std->neptunCode}} <!--Student netptunCode from database-->
-        {{$std->email}} <!--Student email from database-->
+        <tr>
+            <td>{{$std->id}}</td>
+            <td>{{$std->name}}</td>
+            <td>{{$std->neptunCode}}</td>
+            <td>{{$std->email}}</td>
+            <td><a href="{{"delete/".$std->id}}">Delete</a></td><br>
+        </tr>
     @endforeach
     </div>
 </body>
