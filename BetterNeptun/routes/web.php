@@ -73,4 +73,4 @@ Route::get('/gradeAvarage', [GradeController::class, 'gradeAvarageIndex']);
 
 //Schedule oldal
 Route::view('timetable', 'students.timetable');
-Route::get('/timetable', [TimetableController::class, 'schedule']);
+Route::get('/timetable', [TimetableController::class, 'timetable']);
