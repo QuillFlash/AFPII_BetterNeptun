@@ -12,8 +12,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ListStudentsController;
+use App\Http\Controllers\SubjectsController;
+use App\Http\Controllers\GradeController;
+use App\Http\Controllers\TimetableController;
 
 Route::get('/', function ()
 {
@@ -21,7 +25,7 @@ Route::get('/', function ()
 });
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::resource('students', ListStudentsController::class);
 
@@ -60,13 +64,13 @@ Route::get('assign/{id}', [SubjectsController::class, 'assignStudentToSubject'])
 
 //Add grade oldal
 Route::view('addGrade', 'students.addGrade');
-Route::get('/addGrade', [ListStudentsController::class, 'addGradeIndex']);
-Route::post('/addGrade', [ListStudentsController::class, 'addGrade']);
+Route::get('/addGrade', [GradeController::class, 'addGradeIndex']);
+Route::post('/addGrade', [GradeController::class, 'addGrade']);
 
 //Grade avarage oldal
 Route::view('gradeAvarage', 'students.gradeAvarage');
-Route::get('/gradeAvarage', [ListStudentsController::class, 'gradeAvarageIndex']);
+Route::get('/gradeAvarage', [GradeController::class, 'gradeAvarageIndex']);
 
 //Schedule oldal
 Route::view('timetable', 'students.timetable');
-Route::get('/timetable', [ListStudentsController::class, 'schedule']);
+Route::get('/timetable', [TimetableController::class, 'schedule']);
