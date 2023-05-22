@@ -35,3 +35,18 @@ describe('Update student information', () => {
         cy.contains('button', 'Update').click();
     });
 });
+
+describe('Add subject', () => {
+    it('succesfully added student', () => {
+        cy.visit('/login');
+        cy.get('#neptunCode').type('N4PVV4');
+        cy.get('#password').type('123456');
+        cy.contains('button', 'Bejelentkezés').click();
+
+        cy.contains('a', 'Add Subject').click();
+        cy.get('#subjectName').type('Valószínűség számítás gy.');
+        cy.get('#subjectCode').type('NBT-124');
+        cy.get('#room').type('C-124');
+        cy.contains('button', 'Add Subject').click();
+    });
+});
